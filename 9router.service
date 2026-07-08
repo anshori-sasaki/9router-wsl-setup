@@ -1,0 +1,15 @@
+[Unit]
+Description=9Router AI Proxy (Direct)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /usr/local/lib/node_modules/9router/app/custom-server.js
+WorkingDirectory=/root
+Environment=NODE_OPTIONS=--max-old-space-size=512
+Environment=PORT=20128
+Environment=HOSTNAME=127.0.0.1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
